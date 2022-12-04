@@ -1,0 +1,38 @@
+mutation Mutation($email: String) {
+    login(email: $email) {
+        token
+        email
+    }}
+
+
+query QueryLunch($launchId: ID!) {
+    launch(id: $launchId) {
+        site
+        mission {
+            name
+        }
+        rocket {
+            name
+        }
+    }
+}
+
+query QueryMe {
+    me {
+        email
+    }
+}
+
+query QueryLaunchesPageSize($pageSize: Int) {
+    launches(pageSize: $pageSize) {
+        launches {
+            id
+        }
+    }
+}
+
+mutation BookTrips($launchIds: [ID]!) {
+    bookTrips(launchIds: $launchIds) {
+        success
+    }
+}
